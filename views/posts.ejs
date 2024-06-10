@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Welcome to the Quora Post!!!</h1>
+    <% for(let post of posts) { %>
+        <div class="pst">
+            <h3 class="user">@<%= post.username %></h3>
+            <h4 class="content"><%= post.content %></h4>
+            <br><br>
+            <a href="/posts/<%= post.id %>"><%= post.username %>: <%= post.content %>See in details</a>
+            <a href="/posts/<%= post.id %>/edit">Edit</a>
+            <form action="/posts/<%= post.id %>?_method=Delete" method="post">
+                <button type="submit">Delete post</button>
+            </form>
+        </div>
+    <% } %>
+<br><br>
+<a href="http://localhost:8080/posts/new">create new post</a>
+
+</body>
+</html>
